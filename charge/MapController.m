@@ -224,15 +224,11 @@ typedef enum {
             }
         }
         
-        NSLog(@"https://na.chargepoint.com/dashboard/getChargeSpots?ne_lat=%f&ne_lng=%f&sw_lat=%f&sw_lng=%f", bounds.northEast.latitude, bounds.northEast.longitude, bounds.southWest.latitude, bounds.southWest.longitude);
         [manager GET:[NSString stringWithFormat:@"https://na.chargepoint.com/dashboard/getChargeSpots?ne_lat=%f&ne_lng=%f&sw_lat=%f&sw_lng=%f", bounds.northEast.latitude, bounds.northEast.longitude, bounds.southWest.latitude, bounds.southWest.longitude] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             for (id station in [[[responseObject objectAtIndex:0] objectForKey:@"station_list"] objectForKey:@"summaries"]) {
                 if ([[station objectForKey:@"station_status"] isEqualToString:@"out_of_network"])
                     continue;
-                if ([[station objectForKey:@"device_id"] intValue] == 1132) {
-                    NSLog(@"%@", [[station objectForKey:@"station_name"] objectAtIndex:0]);
-                }
                 id levels = [station objectForKey:@"map_data"];
                 id level1 = [levels objectForKey:@"level1"];
                 id level2 = [levels objectForKey:@"level2"];
@@ -303,16 +299,10 @@ typedef enum {
             Status status = [self getStationStatus:group];
             marker.icon = [StationGroup getIcon:status];
             marker.map = (self.selectedMarker == nil && status != HIDDEN) || [self.selectedMarker isEqual:marker] ? self.map : nil;
-            if ([station.id isEqualToString:@"c1132"]) {
-                NSLog(@"added to existing stationgroup %@ %f %f hidden:%i", group.address, group.position.latitude, group.position.longitude, status == HIDDEN);
-            }
             return;
         }
     }
     if ([bounds containsCoordinate:station.position]) {
-        if ([station.id isEqualToString:@"c1132"]) {
-            NSLog(@"creating new group");
-        }
         StationGroup *group = [[StationGroup alloc] initWithStation:station];
         Status status = [self getStationStatus:group];
         GMSMarker *marker = [[GMSMarker alloc] init];
@@ -331,10 +321,6 @@ typedef enum {
     BOOL level1 = [prefs boolForKey:@"level1"],
         level2 = [prefs boolForKey:@"level2"],
         level3 = [prefs boolForKey:@"level3"];
-    
-    if ([station.id isEqualToString:@"c1132"]) {
-        NSLog(@"levels %i %i %i", station.level1Total, station.level2Total, station.level3Total);
-    }
     
     if ((level1 ? station.level1Total : 0) + (level2 ? station.level2Total : 0) + (level3 ? station.level3Total : 0) > 0
         && (([station.network isEqualToString:@"Chargepoint"] && [prefs boolForKey:@"chargepoint"])
