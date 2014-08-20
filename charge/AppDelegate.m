@@ -1,16 +1,44 @@
 #import "AppDelegate.h"
+#import "MMDrawerController.h"
+#import "MMDrawerVisualState.h"
+#import "MapController.h"
 
 @implementation AppDelegate
 
++ (NSUserDefaults *)getPreferences {
+    static NSUserDefaults *prefs = nil;
+    if (prefs == nil) {
+        prefs = [NSUserDefaults standardUserDefaults];
+        [prefs registerDefaults:@{
+            @"chargepoint": @YES,
+            @"blink": @YES,
+            @"level1": @YES,
+            @"level2": @YES,
+            @"level3": @NO,
+            @"unavailable": @YES,
+            @"optFavorites": @NO,
+            @"latitude": @38,
+            @"longitude": @-96,
+            @"zoom": @3}];
+    }
+    return prefs;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyCuig7Cfq3ums6j8nOkHmTWthrvhM6ZaWc"];
+    
+    MMDrawerController *drawerController = (MMDrawerController *)self.window.rootViewController;
+    [drawerController setMaximumRightDrawerWidth:200.0];
+    [drawerController setShouldStretchDrawer:NO];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [drawerController setDrawerVisualStateBlock:[MMDrawerVisualState parallaxVisualStateBlockWithParallaxFactor:2.0]];
+    
     return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [(MapController *)[((MMDrawerController *)self.window.rootViewController).centerViewController.childViewControllers objectAtIndex:0] saveState];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -27,7 +55,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [(MapController *)[((MMDrawerController *)self.window.rootViewController).centerViewController.childViewControllers objectAtIndex:0] saveState];
 }
 
 @end

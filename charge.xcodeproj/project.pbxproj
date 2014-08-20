@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2167C63919948E2B007D8CBD /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C63819948E2B007D8CBD /* SettingsController.m */; };
-		2167C63E19976411007D8CBD /* pin_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2167C63B19976411007D8CBD /* pin_green@2x.png */; };
-		2167C63F19976411007D8CBD /* pin_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2167C63C19976411007D8CBD /* pin_red@2x.png */; };
-		2167C64019976411007D8CBD /* pin_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2167C63D19976411007D8CBD /* pin_yellow@2x.png */; };
+		2167C64B199C07C5007D8CBD /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C643199C07C5007D8CBD /* MMDrawerBarButtonItem.m */; };
+		2167C64C199C07C5007D8CBD /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C646199C07C5007D8CBD /* MMDrawerController.m */; };
+		2167C64D199C07C5007D8CBD /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C648199C07C5007D8CBD /* MMDrawerVisualState.m */; };
+		2167C64E199C07C5007D8CBD /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C64A199C07C5007D8CBD /* UIViewController+MMDrawerController.m */; };
+		2167C651199C6AE2007D8CBD /* MMDrawerController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2167C650199C6AE2007D8CBD /* MMDrawerController+Storyboard.m */; };
+		2167C65A199F1949007D8CBD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167C659199F1949007D8CBD /* Images.xcassets */; };
 		21E8FEC219919A7200BC5EF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEC119919A7200BC5EF0 /* Foundation.framework */; };
 		21E8FEC419919A7200BC5EF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEC319919A7200BC5EF0 /* CoreGraphics.framework */; };
 		21E8FEC619919A7200BC5EF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEC519919A7200BC5EF0 /* UIKit.framework */; };
@@ -19,7 +22,6 @@
 		21E8FED219919A7300BC5EF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E8FED119919A7300BC5EF0 /* AppDelegate.m */; };
 		21E8FED519919A7300BC5EF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E8FED319919A7300BC5EF0 /* Main.storyboard */; };
 		21E8FEDB19919A7300BC5EF0 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E8FEDA19919A7300BC5EF0 /* MapController.m */; };
-		21E8FEDD19919A7300BC5EF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E8FEDC19919A7300BC5EF0 /* Images.xcassets */; };
 		21E8FEE419919A7300BC5EF0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEE319919A7300BC5EF0 /* XCTest.framework */; };
 		21E8FEE519919A7300BC5EF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEC119919A7200BC5EF0 /* Foundation.framework */; };
 		21E8FEE619919A7300BC5EF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8FEC519919A7200BC5EF0 /* UIKit.framework */; };
@@ -63,10 +65,20 @@
 /* Begin PBXFileReference section */
 		2167C63719948E2B007D8CBD /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		2167C63819948E2B007D8CBD /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
-		2167C63B19976411007D8CBD /* pin_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_green@2x.png"; sourceTree = "<group>"; };
-		2167C63C19976411007D8CBD /* pin_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_red@2x.png"; sourceTree = "<group>"; };
-		2167C63D19976411007D8CBD /* pin_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_yellow@2x.png"; sourceTree = "<group>"; };
-		21E8FEBE19919A7200BC5EF0 /* charge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = charge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2167C642199C07C5007D8CBD /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		2167C643199C07C5007D8CBD /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		2167C644199C07C5007D8CBD /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		2167C645199C07C5007D8CBD /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		2167C646199C07C5007D8CBD /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		2167C647199C07C5007D8CBD /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		2167C648199C07C5007D8CBD /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		2167C649199C07C5007D8CBD /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		2167C64A199C07C5007D8CBD /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		2167C64F199C6AE2007D8CBD /* MMDrawerController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Storyboard.h"; sourceTree = "<group>"; };
+		2167C650199C6AE2007D8CBD /* MMDrawerController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController+Storyboard.m"; sourceTree = "<group>"; };
+		2167C658199ED7FD007D8CBD /* charge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = charge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2167C659199F1949007D8CBD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2167C667199F4576007D8CBD /* chargeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chargeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E8FEC119919A7200BC5EF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21E8FEC319919A7200BC5EF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		21E8FEC519919A7200BC5EF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -79,8 +91,6 @@
 		21E8FED419919A7300BC5EF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21E8FED919919A7300BC5EF0 /* MapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		21E8FEDA19919A7300BC5EF0 /* MapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
-		21E8FEDC19919A7300BC5EF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		21E8FEE219919A7300BC5EF0 /* chargeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chargeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E8FEE319919A7300BC5EF0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		21E8FEEB19919A7300BC5EF0 /* chargeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "chargeTests-Info.plist"; sourceTree = "<group>"; };
 		21E8FEED19919A7300BC5EF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -158,14 +168,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2167C63A19976411007D8CBD /* images */ = {
+		2167C641199C07C5007D8CBD /* MMDrawerController */ = {
 			isa = PBXGroup;
 			children = (
-				2167C63B19976411007D8CBD /* pin_green@2x.png */,
-				2167C63C19976411007D8CBD /* pin_red@2x.png */,
-				2167C63D19976411007D8CBD /* pin_yellow@2x.png */,
+				2167C64F199C6AE2007D8CBD /* MMDrawerController+Storyboard.h */,
+				2167C650199C6AE2007D8CBD /* MMDrawerController+Storyboard.m */,
+				2167C642199C07C5007D8CBD /* MMDrawerBarButtonItem.h */,
+				2167C643199C07C5007D8CBD /* MMDrawerBarButtonItem.m */,
+				2167C644199C07C5007D8CBD /* MMDrawerController+Subclass.h */,
+				2167C645199C07C5007D8CBD /* MMDrawerController.h */,
+				2167C646199C07C5007D8CBD /* MMDrawerController.m */,
+				2167C647199C07C5007D8CBD /* MMDrawerVisualState.h */,
+				2167C648199C07C5007D8CBD /* MMDrawerVisualState.m */,
+				2167C649199C07C5007D8CBD /* UIViewController+MMDrawerController.h */,
+				2167C64A199C07C5007D8CBD /* UIViewController+MMDrawerController.m */,
 			);
-			path = images;
+			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
 		21E8FEB519919A7200BC5EF0 = {
@@ -174,17 +192,9 @@
 				21E8FEC719919A7200BC5EF0 /* charge */,
 				21E8FEE919919A7300BC5EF0 /* chargeTests */,
 				21E8FEC019919A7200BC5EF0 /* Frameworks */,
-				21E8FEBF19919A7200BC5EF0 /* Products */,
+				2167C658199ED7FD007D8CBD /* charge.app */,
+				2167C667199F4576007D8CBD /* chargeTests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		21E8FEBF19919A7200BC5EF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21E8FEBE19919A7200BC5EF0 /* charge.app */,
-				21E8FEE219919A7300BC5EF0 /* chargeTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		21E8FEC019919A7200BC5EF0 /* Frameworks */ = {
@@ -216,8 +226,7 @@
 		21E8FEC719919A7200BC5EF0 /* charge */ = {
 			isa = PBXGroup;
 			children = (
-				2167C63A19976411007D8CBD /* images */,
-				21E8FF1B1992CBBF00BC5EF0 /* AFNetworking */,
+				2167C659199F1949007D8CBD /* Images.xcassets */,
 				21E8FED019919A7300BC5EF0 /* AppDelegate.h */,
 				21E8FED119919A7300BC5EF0 /* AppDelegate.m */,
 				21E8FED319919A7300BC5EF0 /* Main.storyboard */,
@@ -225,7 +234,6 @@
 				21E8FEDA19919A7300BC5EF0 /* MapController.m */,
 				2167C63719948E2B007D8CBD /* SettingsController.h */,
 				2167C63819948E2B007D8CBD /* SettingsController.m */,
-				21E8FEDC19919A7300BC5EF0 /* Images.xcassets */,
 				21E8FEC819919A7200BC5EF0 /* Supporting Files */,
 			);
 			path = charge;
@@ -234,6 +242,8 @@
 		21E8FEC819919A7200BC5EF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2167C641199C07C5007D8CBD /* MMDrawerController */,
+				21E8FF1B1992CBBF00BC5EF0 /* AFNetworking */,
 				21E8FEC919919A7200BC5EF0 /* charge-Info.plist */,
 				21E8FECA19919A7200BC5EF0 /* InfoPlist.strings */,
 				21E8FECD19919A7200BC5EF0 /* main.m */,
@@ -303,7 +313,7 @@
 			);
 			name = charge;
 			productName = charge;
-			productReference = 21E8FEBE19919A7200BC5EF0 /* charge.app */;
+			productReference = 2167C658199ED7FD007D8CBD /* charge.app */;
 			productType = "com.apple.product-type.application";
 		};
 		21E8FEE119919A7300BC5EF0 /* chargeTests */ = {
@@ -321,7 +331,7 @@
 			);
 			name = chargeTests;
 			productName = chargeTests;
-			productReference = 21E8FEE219919A7300BC5EF0 /* chargeTests.xctest */;
+			productReference = 2167C667199F4576007D8CBD /* chargeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -333,6 +343,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Klaus Ganser";
 				TargetAttributes = {
+					21E8FEBD19919A7200BC5EF0 = {
+						DevelopmentTeam = 4Y26W9Q78L;
+					};
 					21E8FEE119919A7300BC5EF0 = {
 						TestTargetID = 21E8FEBD19919A7200BC5EF0;
 					};
@@ -347,7 +360,7 @@
 				Base,
 			);
 			mainGroup = 21E8FEB519919A7200BC5EF0;
-			productRefGroup = 21E8FEBF19919A7200BC5EF0 /* Products */;
+			productRefGroup = 21E8FEB519919A7200BC5EF0;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -362,13 +375,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E8FEDD19919A7300BC5EF0 /* Images.xcassets in Resources */,
 				21E8FED519919A7300BC5EF0 /* Main.storyboard in Resources */,
-				2167C63E19976411007D8CBD /* pin_green@2x.png in Resources */,
+				2167C65A199F1949007D8CBD /* Images.xcassets in Resources */,
 				21E8FECC19919A7200BC5EF0 /* InfoPlist.strings in Resources */,
 				21E8FF181991A74D00BC5EF0 /* GoogleMaps.bundle in Resources */,
-				2167C64019976411007D8CBD /* pin_yellow@2x.png in Resources */,
-				2167C63F19976411007D8CBD /* pin_red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,11 +398,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E8FF2F1992CBBF00BC5EF0 /* AFHTTPRequestOperation.m in Sources */,
+				2167C651199C6AE2007D8CBD /* MMDrawerController+Storyboard.m in Sources */,
+				2167C64C199C07C5007D8CBD /* MMDrawerController.m in Sources */,
 				21E8FEDB19919A7300BC5EF0 /* MapController.m in Sources */,
 				21E8FF301992CBBF00BC5EF0 /* AFHTTPRequestOperationManager.m in Sources */,
+				2167C64D199C07C5007D8CBD /* MMDrawerVisualState.m in Sources */,
 				21E8FF321992CBBF00BC5EF0 /* AFNetworkReachabilityManager.m in Sources */,
 				21E8FF361992CBBF00BC5EF0 /* AFURLResponseSerialization.m in Sources */,
 				21E8FF341992CBBF00BC5EF0 /* AFURLConnectionOperation.m in Sources */,
+				2167C64E199C07C5007D8CBD /* UIViewController+MMDrawerController.m in Sources */,
 				21E8FF331992CBBF00BC5EF0 /* AFSecurityPolicy.m in Sources */,
 				21E8FF311992CBBF00BC5EF0 /* AFHTTPSessionManager.m in Sources */,
 				21E8FF351992CBBF00BC5EF0 /* AFURLRequestSerialization.m in Sources */,
@@ -400,6 +414,7 @@
 				21E8FF371992CBBF00BC5EF0 /* AFURLSessionManager.m in Sources */,
 				21E8FED219919A7300BC5EF0 /* AppDelegate.m in Sources */,
 				21E8FECE19919A7200BC5EF0 /* main.m in Sources */,
+				2167C64B199C07C5007D8CBD /* MMDrawerBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kganser/Desktop/charge,
@@ -538,6 +554,7 @@
 				GCC_PREFIX_HEADER = "charge/charge-Prefix.pch";
 				INFOPLIST_FILE = "charge/charge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kganser/Desktop/charge,
@@ -555,6 +573,7 @@
 				GCC_PREFIX_HEADER = "charge/charge-Prefix.pch";
 				INFOPLIST_FILE = "charge/charge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

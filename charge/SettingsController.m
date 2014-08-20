@@ -1,38 +1,51 @@
 #import "SettingsController.h"
+#import "AppDelegate.h"
+#import "MMDrawerController.h"
+#import "MapController.h"
 
-@interface SettingsController ()
-@property (weak, nonatomic) IBOutlet UITableViewCell *optChargepoint;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optBlink;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optLevel1;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optLevel2;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optLevel3;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optUnavailable;
-@property (weak, nonatomic) IBOutlet UITableViewCell *optFavorites;
-@end
-
-@implementation SettingsController
+@implementation SettingsController {
+    NSArray *options;
+    NSUserDefaults *prefs;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    static NSMutableDictionary *preferences = nil;
-    if (preferences == nil)
-        preferences = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@YES, @"optChargepoint", @YES, @"optBlink", @YES, @"optLevel1", @YES, @"optLevel2", @NO, @"optLevel3", @YES, @"optUnavailable", @NO, @"optFavorites", nil];
-    for (id option in preferences) {
-        UISwitch *button = [[UISwitch alloc] init];
-        [button setOn:[[preferences objectForKey:option] boolValue]];
-        [button addTarget:self action:@selector(toggle:) forControlEvents:UIControlEventValueChanged];
-        [[self valueForKey:option] setAccessoryView:button];
+    self.tableView.delegate = self;
+    options = @[@"chargepoint", @"blink", @"level1", @"level2", @"level3", @"unavailable", @"favorites"];
+    prefs = [AppDelegate getPreferences];
+}
+
+- (void)viewDidLayoutSubviews {
+    int i = 0;
+    for (UITableViewCell *cell in self.tableView.visibleCells) {
+        if ([prefs boolForKey:[options objectAtIndex:i]])
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.tag = i++;
     }
 }
 
-- (void)toggle:(id)sender {
-    
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.textColor = [UIColor whiteColor];
+    header.backgroundView.backgroundColor = [UIColor colorWithRed:92.f/256 green:97.f/256 blue:101.f/256 alpha:1.f];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [(MapController *)[((MMDrawerController *)self.parentViewController.parentViewController).centerViewController.childViewControllers objectAtIndex:0] updateMarkers];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *option = [options objectAtIndex:cell.tag];
+    BOOL value = [prefs boolForKey:option];
+    cell.accessoryType = value ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+    [prefs setBool:!value forKey:option];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
